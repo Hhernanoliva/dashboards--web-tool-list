@@ -25,16 +25,10 @@ preview online: https://dashboards-web-tool-list.vercel.app/
 - Section of Cards
   - **Card 1**
     - Card Header
-      - Card Image (Referencia)
-      - **Card Title**
-    - Card Body
-      - **Card Content**
-  - **Card 2**
-    - Card Header
-      - Card Image (Referencia)
-      - **Card Title**
-    - Card Body
-      - **Card Content**
+      - Thumbnail
+      - Titulo
+      - Descripción
+      - URL
   - ... (more cards)
 
 # Documentación de SvelteKit
