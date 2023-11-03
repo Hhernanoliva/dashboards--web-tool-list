@@ -37,7 +37,7 @@ preview online: https://dashboards-web-tool-list.vercel.app/
       - **Card Content**
   - ... (more cards)
 
-## Documentación de SvelteKit
+# Documentación de SvelteKit
 
 ### Estructura del proyecto:
 
