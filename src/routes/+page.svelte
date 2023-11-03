@@ -16,14 +16,14 @@ onMount(async () => {
 	// console.log(record);	
 	// console.log(authData);
 
+// 	await pb.admins.authWithPassword('hhernanoliva@gmail.com', 'Noviembre2023!');
 
+// const collection = await pb.collections.getOne('UA_Dashboard');
+// console.log(collection);
 	
 })
 
-await pb.admins.authWithPassword('hhernanoliva@gmail.com', 'Noviembre2023!');
 
-	const collection = await pb.collections.getOne('UA_Dashboard');
-	console.log(collection);
 
 </script>
 
