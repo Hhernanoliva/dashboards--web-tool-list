@@ -55,4 +55,4 @@ preview online: https://dashboards-web-tool-list.vercel.app/
 
 
 ## Tutorials
-https://www.youtube.com/watch?v=doDKaKDvB30&t=630s
+- **SvelteKit Authentication with PocketBase** ([https://kit.svelte.dev/docs/introduction](https://www.youtube.com/watch?v=doDKaKDvB30))
