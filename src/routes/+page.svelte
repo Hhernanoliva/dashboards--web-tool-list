@@ -1,42 +1,15 @@
-<!-- PASS POCKETBASE: Noviembre2023! -->
+<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 
-<script>
-	// @ts-ignore
-	import PocketBase from 'pocketbase';
-	import { onMount } from 'svelte';
-
-const pb = new PocketBase('https://dashboards--web-tool-list.pockethost.io');
-
-onMount(async () => {
-	// const authData = await pb.collection('users').authWithPassword('hhernanoliva@gmail.com', 'Noviembre2023!');
-	// const authData = await pb.admins.authWithPassword('hhernanoliva@gmail.com', 'Noviembre2023!');
-	// const record = await pb.collection('UA_Dashboard').getOne('dy7a6tixx3rbmby', {
-    // expand: 'relField1,relField2.subRelField',
-	// });
-	// console.log(record);	
-	// console.log(authData);
-
-// 	await pb.admins.authWithPassword('hhernanoliva@gmail.com', 'Noviembre2023!');
-
-// const collection = await pb.collections.getOne('UA_Dashboard');
-// console.log(collection);
-	
-})
-
-
-
-</script>
-
-<div class="container flex items-center justify-center h-full mx-auto">
-	<div class="flex flex-col items-center space-y-10 text-center">
-		<h2 class="h2">Welcome to Tools List Dashboard.</h2>
+<div class="container h-full mx-auto flex justify-center items-center">
+	<div class="space-y-5">
+		<h1 class="h1">Let's get cracking bones!</h1>
+		<p>Start by exploring:</p>
+		<ul>
+			<li><code class="code">/src/routes/+layout.svelte</code> - barebones layout</li>
+			<li><code class="code">/src/app.postcss</code> - app wide css</li>
+			<li>
+				<code class="code">/src/routes/+page.svelte</code> - this page, you can replace the contents
+			</li>
+		</ul>
 	</div>
 </div>
-
-
-
-
-
-<style lang="postcss">
-
-</style>

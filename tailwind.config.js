@@ -2,7 +2,8 @@ import { join } from 'path'
 
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
-import { skeleton } from '@skeletonlabs/tw-plugin'
+import { skeleton } from '@skeletonlabs/tw-plugin';
+import { webTool } from './src/webTool'
 /** @type {import('tailwindcss').Config} */
 export default {
 	darkMode: 'class',
@@ -15,11 +16,8 @@ export default {
 		typography,
 		skeleton({
 			themes: {
-				preset: [
-					{
-						name: 'rocket',
-						enhancements: true,
-					},
+				custom: [
+					webTool,
 				],
 			},
 		}),
