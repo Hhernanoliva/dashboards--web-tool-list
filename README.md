@@ -11,6 +11,32 @@ npm run dev -- --open
 ```
 preview online: https://dashboards-web-tool-list.vercel.app/
 
+# WebApp Architecture
+
+## AppBar
+- **Title**
+- **Profile**
+  - Avatar
+  - Login
+  - Logout
+- **Search**
+
+## Main Content
+- Section of Cards
+  - **Card 1**
+    - Card Header
+      - Card Image (Referencia)
+      - **Card Title**
+    - Card Body
+      - **Card Content**
+  - **Card 2**
+    - Card Header
+      - Card Image (Referencia)
+      - **Card Title**
+    - Card Body
+      - **Card Content**
+  - ... (more cards)
+
 ## Documentación de SvelteKit
 
 ### Estructura del proyecto:
