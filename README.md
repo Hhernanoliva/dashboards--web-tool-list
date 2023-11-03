@@ -1,18 +1,3 @@
-# create-svelte
-
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
 
 ## Developing
 
@@ -24,15 +9,26 @@ npm run dev
 # or start the server and open the app in a new browser tab
 npm run dev -- --open
 ```
+preview online: https://dashboards-web-tool-list.vercel.app/
 
-## Building
+## Documentación de SvelteKit
 
-To create a production version of your app:
+### Estructura del proyecto:
 
-```bash
-npm run build
-```
+- **src:** Directorio principal que contiene el núcleo del proyecto.
+- **lib:** Contiene el código de la biblioteca, incluyendo utilidades y componentes. Estos se pueden importar utilizando el alias `$lib`.
+- **static:** Este directorio se utiliza para almacenar activos estáticos, como imágenes, fuentes o cualquier archivo que no necesite ser procesado por la aplicación.
+- **app.html:** Documento HTML que contiene marcadores de posición para varios elementos.
 
-You can preview the production build with `npm run preview`.
+### Dependencias:
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- **Sveltekit:** [Documentación](https://kit.svelte.dev/docs/introduction)
+- **SkeletonUI:** [Documentación](https://www.skeleton.dev/docs/get-started)
+
+### Documentación de Skeleton (Front-end):
+
+...
+
+### Documentación de Pocketbase y Pockethost (Back-end):
+
+...
