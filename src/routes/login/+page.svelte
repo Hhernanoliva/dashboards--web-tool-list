@@ -1,18 +1,24 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 <script lang="ts">
-    import {goto} from "$app/navigation"
+    import PocketBase from 'pocketbase';
+    import {goto} from "$app/navigation";
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
+	import { userStore } from '../../lib/store';
 
 	let identity: String;
 	let password: String;
 	let roleOption = '';
+	let isLoading = false;
 
 	const options = [
 		{ value: 'admin', label: 'Admin' },
 		{ value: 'public', label: 'Public' }
 	];
 
+    const pb = new PocketBase('https://damp-tiger.pockethost.io');
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
+		isLoading = true;
 		if (roleOption === 'admin') {
 			try {
 				const response = await fetch(
@@ -30,16 +36,20 @@
 				);
 
 				if (!response.ok) {
+					isLoading = false;
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 
 				const data = await response.json();
-				console.log(data);
+				
+				userStore.set({role:data, token: data.token})
+				isLoading = false;
                 await goto('/');
 			} catch (error) {
 				console.log(error);
 			}
 		} else {
+			isLoading = true;
             try {
 				const response = await fetch(
 					'https://damp-tiger.pockethost.io/api/collections/users/auth-with-password',
@@ -56,11 +66,13 @@
 				);
 
 				if (!response.ok) {
+					isLoading = false;
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 
 				const data = await response.json();
-				console.log(data);
+				userStore.set({role:data, token: data.token})
+				isLoading = false;
                 await goto('/');
 			} catch (error) {
 				console.log(error);
@@ -68,12 +80,13 @@
 		}
 	};
 </script>
-
-<form on:submit={handleSubmit} class="container h-full mx-auto flex justify-center items-center">
-	<div class="space-y-5">
-		<label for="identity" class="label">
-			<span>Email</span>
-			<input
+<div class="container">
+    <form on:submit={handleSubmit} class="container h-full mx-auto flex justify-center items-center">
+        
+        <div class="space-y-5">
+            <label for="identity" class="label">
+                <span>Email</span>
+                <input
 				class="input"
 				name="identity"
 				id="identity"
@@ -81,12 +94,12 @@
 				placeholder="Colocar Email"
 				bind:value={identity}
 				required
-			/>
-		</label>
-
-		<label for="password" class="label">
-			<span>Contraseña</span>
-			<input
+                />
+            </label>
+            
+            <label for="password" class="label">
+                <span>Contraseña</span>
+                <input
 				class="input"
 				name="password"
 				id="password"
@@ -94,16 +107,19 @@
 				placeholder="Insertar contraseña"
 				bind:value={password}
 				required
-			/>
-		</label>
-		<label for="role" class="label">
-			<span>Role</span>
-			<select bind:value={roleOption} class="select">
-				{#each options as option (option.value)}
+                />
+            </label>
+            <label for="role" class="label">
+                <span>Role</span>
+                <select bind:value={roleOption} class="select">
+                    {#each options as option (option.value)}
 					<option value={option.value}>{option.label}</option>
-				{/each}
-			</select>
-		</label>
-		<button type="submit" class="btn variant-filled">Submit</button>
-	</div>
-</form>
+                    {/each}
+                </select>
+            </label>
+            <button type="submit" class="btn variant-filled">Submit</button>
+			{#if isLoading}<ProgressRadial />{/if}
+        </div>
+    </form>
+</div>
+    
