@@ -2,9 +2,7 @@
 <script lang="ts">
     import PocketBase from 'pocketbase';
     import {goto} from "$app/navigation"
-    import {userStore} from "$lib/store"
-    console.log(userStore);
-    
+
 	let identity: String;
 	let password: String;
 	let roleOption = '';
