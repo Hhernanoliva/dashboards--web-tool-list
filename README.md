@@ -31,6 +31,9 @@ preview online: https://dashboards-web-tool-list.vercel.app/
       - URL
   - ... (more cards)
 
+## Mockup / Referencia
+
+![Mockup](http://18.229.78.216/secure/attachment/65431/65431_mockup.png)
 # Documentación de SvelteKit
 
 ### Estructura del proyecto:
