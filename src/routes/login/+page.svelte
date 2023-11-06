@@ -1,7 +1,8 @@
 <!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
 <script lang="ts">
     import PocketBase from 'pocketbase';
-    import {goto} from "$app/navigation"
+    import {goto} from "$app/navigation";
+	import { userStore } from '../../lib/store';
 
 	let identity: String;
 	let password: String;
@@ -34,13 +35,11 @@
 				if (!response.ok) {
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
-                const authData = await pb.admins.authWithPassword(identity, password);
-                console.log(authData);
-                console.log(pb.authStore);
-			// 	const data = await response.json();
-            //    let test = userStore.update(currentValue => ({ ...currentValue, authData }));
-			// 	console.log(test);
-                // await goto('/');
+
+				const data = await response.json();
+				
+				userStore.set({data})
+                await goto('/');
 			} catch (error) {
 				console.log(error);
 			}
@@ -65,7 +64,7 @@
 				}
 
 				const data = await response.json();
-				console.log(data);
+				userStore.set({data})
                 await goto('/');
 			} catch (error) {
 				console.log(error);
@@ -74,7 +73,6 @@
 	};
 </script>
 <div class="container">
-    <h1>Login Page</h1>
     <form on:submit={handleSubmit} class="container h-full mx-auto flex justify-center items-center">
         
         <div class="space-y-5">
