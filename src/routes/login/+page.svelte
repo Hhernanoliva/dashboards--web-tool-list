@@ -2,11 +2,13 @@
 <script lang="ts">
     import PocketBase from 'pocketbase';
     import {goto} from "$app/navigation";
+	import { ProgressRadial } from '@skeletonlabs/skeleton';
 	import { userStore } from '../../lib/store';
 
 	let identity: String;
 	let password: String;
 	let roleOption = '';
+	let isLoading = false;
 
 	const options = [
 		{ value: 'admin', label: 'Admin' },
@@ -16,6 +18,7 @@
     const pb = new PocketBase('https://damp-tiger.pockethost.io');
 	const handleSubmit = async (event: Event) => {
 		event.preventDefault();
+		isLoading = true;
 		if (roleOption === 'admin') {
 			try {
 				const response = await fetch(
@@ -33,17 +36,20 @@
 				);
 
 				if (!response.ok) {
+					isLoading = false;
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 
 				const data = await response.json();
 				
-				userStore.set({data})
+				userStore.set({role:data, token: data.token})
+				isLoading = false;
                 await goto('/');
 			} catch (error) {
 				console.log(error);
 			}
 		} else {
+			isLoading = true;
             try {
 				const response = await fetch(
 					'https://damp-tiger.pockethost.io/api/collections/users/auth-with-password',
@@ -60,11 +66,13 @@
 				);
 
 				if (!response.ok) {
+					isLoading = false;
 					throw new Error(`HTTP error! status: ${response.status}`);
 				}
 
 				const data = await response.json();
-				userStore.set({data})
+				userStore.set({role:data, token: data.token})
+				isLoading = false;
                 await goto('/');
 			} catch (error) {
 				console.log(error);
@@ -110,6 +118,7 @@
                 </select>
             </label>
             <button type="submit" class="btn variant-filled">Submit</button>
+			{#if isLoading}<ProgressRadial />{/if}
         </div>
     </form>
 </div>
