@@ -1,6 +1,9 @@
-
 <script>
-import SearchBar from "../lib/components/SearchBar/SearchBar.svelte"
+	import SearchBar from '../lib/components/SearchBar/SearchBar.svelte';
+	// import { get } from 'svelte/store';
+	import { userStore } from '../lib/store';
+	console.log($userStore);
+
 </script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
