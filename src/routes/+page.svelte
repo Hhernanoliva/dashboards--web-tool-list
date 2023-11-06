@@ -1,7 +1,11 @@
-<!-- YOU CAN DELETE EVERYTHING IN THIS PAGE -->
+
+<script>
+import SearchBar from "../lib/components/SearchBar/SearchBar.svelte"
+</script>
 
 <div class="container h-full mx-auto flex justify-center items-center">
 	<div class="space-y-5">
+		<SearchBar />
 		<h1 class="h1">Let's get cracking bones!</h1>
 		<p>Start by exploring:</p>
 		<ul>
