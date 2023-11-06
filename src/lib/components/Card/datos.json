@@ -1,0 +1,23 @@
+[
+    {
+      "img": "imagen1.jpg",
+      "titulo": "Artículo sobre tecnología",
+      "link": "https://www.ejemplo.com/articulo1",
+      "descrip": "Un artículo informativo sobre las últimas tendencias tecnológicas.",
+      "tags": ["tecnología", "innovación", "informática"]
+    },
+    {
+      "img": "imagen2.jpg",
+      "titulo": "Receta de cocina: Pastel de chocolate",
+      "link": "https://www.ejemplo.com/receta-chocolate",
+      "descrip": "Aprende a hacer un delicioso pastel de chocolate en casa con esta receta fácil.",
+      "tags": ["cocina", "recetas", "postres"]
+    },
+    {
+      "img": "imagen3.jpg",
+      "titulo": "Consejos de viaje: Explora París",
+      "link": "https://www.ejemplo.com/viaje-paris",
+      "descrip": "Descubre los lugares más emblemáticos de París y obtén consejos de viaje útiles.",
+      "tags": ["viajes", "turismo", "París"]
+    }
+  ]
