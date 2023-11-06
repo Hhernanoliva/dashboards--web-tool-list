@@ -1,14 +1,14 @@
 <script>
-	let routes = [
-		{ name: 'Home', path: '/' },
-		{ name: 'Login', path: '/login' }
-	];
+	import { userStore, logout } from '../../store';
 </script>
 
 <nav class="list-nav p-4">
 	<ul>
-		{#each routes as route (route.path)}
-			<li><a href={route.path}>{route.name}</a></li>
-		{/each}
+		<li><a href="/">Home</a></li>
+		{#if Object.keys($userStore).length === 0}
+			<li><a href="/login">Login</a></li>
+		{:else}
+			<button type="button" class="btn" on:click={logout}>Log out</button>
+		{/if}
 	</ul>
 </nav>
